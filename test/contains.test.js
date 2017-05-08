@@ -31,4 +31,20 @@ describe('contains()', () => {
     expect(_.contains(ponies, 'Applejack')).toBe(false);
   });
 
+  it('returns true if an array contains the target', () => {
+    const nums = [8, 8, 9, 0, 8];
+    expect(_.contains(nums, 8)).toBe(true);
+  });
+
+  it('returns true if the target value is among the values of an object', () => {
+    const countries = {
+      'country1': 'Kyrgyzstan',
+      'country2': 'Russia',
+      'country3': 'USA',
+      'country4': 'Poland',
+      'country5': 'Italy'
+    };
+    expect(_.contains(countries, 'Kyrgyzstan')).toBe(true);
+  });
+
 });

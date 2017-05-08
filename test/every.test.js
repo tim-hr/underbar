@@ -17,5 +17,9 @@ describe('every()', () => {
       expect(_.every(nums, num => num % 2 === 1)).toBe(false);
     });
 
+    it('returns true if all numbers in an array are divisible by 5', () => {
+      const nums = [5, 10, 55, 60];
+      expect(_.every(nums, num => num % 5 === 0)).toBe(true);
+    });
   });
 });
