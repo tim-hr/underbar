@@ -13,4 +13,10 @@ describe('reduce()', () => {
     expect(result).toEqual(15);
   });
 
+  it('reduces an array of numbers to a numbers power', () => {
+    const nums = [10, 20, 30];
+    const result = _.reduce(nums, (a, b) => a*b);
+    expect(result).toEqual(6000);
+  });
+
 });

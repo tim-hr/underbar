@@ -39,5 +39,15 @@ describe('each()', () => {
     });
     expect(count).toBe(3);
   });
+
+  it('iterates every element of an array, passing that element, its corresponding index, and the entire array to the callback', () => {
+    const classes = ['English', 'Computer', 'Math', 'Spanish'];
+    let count = 0;
+    _.each(classes, function(element, index, array) {
+      expect(element).toEqual(array[index]);
+      count += 1;
+    });
+    expect(count).toBe(4);
+  });
 });
 
