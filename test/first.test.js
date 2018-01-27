@@ -25,6 +25,7 @@ describe('first()', () => {
   	expect(_.first(['a', 'b', 'c'], -1)).toEqual(['a', 'b']);
   });
 
+  // In this case, should be returned not ['a'] but 'a' ?
   it('returns the first element of an array if you pass a negative number', () => {
     expect(_.first(['a', 'b', 'c'], -2)).toEqual(['a']);
   });
