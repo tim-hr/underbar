@@ -14,9 +14,9 @@ describe('each()', () => {
   it('iterates every element of an array-like object, passing that element, its corresponding index, and the entire array to the callback', () => {
     const arrayLikeObj = {
       length: 3,
-      1: 'a',
-      2: 'b',
-      3: 'c'
+      0: 'a',
+      1: 'b',
+      2: 'c'
     };
     let count = 0;
     _.each(arrayLikeObj, function(element, index, iteratedArrayLikeObj) {
