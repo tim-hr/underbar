@@ -80,12 +80,12 @@ describe('each()', () => {
     };
     let str = '';
     _.each(arrayLikeObj, function(element, index, array) {
-      str += element;
+      str += element + ',';
     });
-    expect(str).toBe('abc');
+    expect(str).toBe('a,b,c,');
   });
 
-  it('iterates undefined if the index doesn\'t exist in the keys', () => {
+  it('iterates every element of an array-like object if the key starts with one', () => {
     let arrayLikeObj = {
       length: 3,
       1: 'a',
@@ -96,7 +96,8 @@ describe('each()', () => {
     _.each(arrayLikeObj, function(element, index, array) {
       str += element + ',';
     });
-    expect(str).toBe('undefined,a,b,');
+    expect(str).toBe('a,b,c,');
+    // returned 'undefined,a,b,'
   });
 });
 
