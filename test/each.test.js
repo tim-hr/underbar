@@ -14,9 +14,9 @@ describe('each()', () => {
   it('iterates every element of an array-like object, passing that element, its corresponding index, and the entire array to the callback', () => {
     const arrayLikeObj = {
       length: 3,
-      1: 'a',
-      2: 'b',
-      3: 'c'
+      0: 'a',
+      1: 'b',
+      2: 'c'
     };
     let count = 0;
     _.each(arrayLikeObj, function(element, index, iteratedArrayLikeObj) {
@@ -71,20 +71,6 @@ describe('each()', () => {
     // 'undefined,undefined,undefined' was returned.
   });
 
-  it('iterates every element of an array-like object if the key starts with zero', () => {
-    let arrayLikeObj = {
-      length: 3,
-      0: 'a',
-      1: 'b',
-      2: 'c'
-    };
-    let str = '';
-    _.each(arrayLikeObj, function(element, index, array) {
-      str += element + ',';
-    });
-    expect(str).toBe('a,b,c,');
-  });
-
   it('iterates every element of an array-like object if the key starts with one', () => {
     let arrayLikeObj = {
       length: 3,
@@ -96,8 +82,7 @@ describe('each()', () => {
     _.each(arrayLikeObj, function(element, index, array) {
       str += element + ',';
     });
-    expect(str).toBe('a,b,c,');
-    // returned 'undefined,a,b,'
+    expect(str).toBe('undefined,a,b,');
   });
 });
 
