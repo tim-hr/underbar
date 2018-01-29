@@ -31,4 +31,37 @@ describe('contains()', () => {
     expect(_.contains(ponies, 'Applejack')).toBe(false);
   });
 
+  it('returns true if the target value is among the values of an array-like object', () => {
+    const ponies = {
+      length: 4,
+      0: 'Fluttershy',
+      1: 'Pinkie Pie',
+      2: 'Rainbow Dash',
+      3: 'Rarity'
+    };
+    expect(_.contains(ponies, 'Rarity')).toBe(true);
+  });
+
+  it('returns false if the target value is not among the values of an array-like object', () => {
+    const ponies = {
+      length: 4,
+      0: 'Fluttershy',
+      1: 'Pinkie Pie',
+      2: 'Rainbow Dash',
+      3: 'Rarity'
+    };
+    expect(_.contains(ponies, 'Applejack')).toBe(false);
+  });
+
+  it('returns false if an array is empty', () => {
+    expect(_.contains([], 0)).toBe(false);
+  });
+
+  it('returns false if an array-like object is empty', () => {
+    expect(_.contains({ length: 0}, 0)).toBe(false);
+  });
+
+  it('returns false if an object is empty', () => {
+    expect(_.contains({}, 0)).toBe(false);
+  });
 });
