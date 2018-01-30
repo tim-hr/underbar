@@ -23,4 +23,67 @@ describe('filter()', () => {
     const abilityScores = _.filter(characterAttributes, (value) => !isNaN(value));
     expect(abilityScores).toEqual([4, 7, 10, 16, 5, 4]);
   });
+
+  it('filters an array-like object to odd numbers', () => {
+    const nums = {
+      length: 4,
+      0: 2,
+      1: 4,
+      2: 5,
+      3: 6
+    };
+    expect(_.filter(nums, num => num % 2 === 1)).toEqual([5]);
+  });
+
+  it('returns an empty array if an empty array is given', () => {
+    expect(_.filter([], num => num % 2 === 1)).toEqual([]);
+  });
+
+  it('returns an empty array if an empty array-like object is given', () => {
+    expect(_.filter({ length:0 }, num => num % 2 === 1)).toEqual([]);
+  });
+
+  it('returns an empty array if an empty object is given', () => {
+    expect(_.filter({}, num => num % 2 === 1)).toEqual([]);
+  });
+
+  it('returns all elements if a callback always returns an empty object', () => {
+    expect(_.filter([1, 2, 3], () => ({}))).toEqual([1, 2, 3]);
+  });
+
+  it('returns all elements if a callback always returns an empty array', () => {
+    expect(_.filter([1, 2, 3], () => [])).toEqual([1, 2, 3]);
+  });
+
+  it('returns all elements if a callback always returns a number', () => {
+    expect(_.filter([1, 2, 3], () => 42)).toEqual([1, 2, 3]);
+  });
+
+  it('returns all elements if a callback always returns a string', () => {
+    expect(_.filter([1, 2, 3], () => 'foo')).toEqual([1, 2, 3]);
+  });
+
+  it('returns all elements if a callback always returns some object', () => {
+    expect(_.filter([1, 2, 3], () => new Date())).toEqual([1, 2, 3]);
+  });
+
+  it('returns no element if a callback always returns null', () => {
+    expect(_.filter([1, 2, 3], () => null)).toEqual([]);
+  });
+
+  it('returns no element if a callback always returns undefined', () => {
+    expect(_.filter([1, 2, 3], () => undefined)).toEqual([]);
+  });
+
+  it('returns no element if a callback always returns 0', () => {
+    expect(_.filter([1, 2, 3], () => 0)).toEqual([]);
+  });
+
+  it('returns no element if a callback always returns NaN', () => {
+    expect(_.filter([1, 2, 3], () => NaN)).toEqual([]);
+  });
+
+  it('returns no element if a callback always returns an empty string', () => {
+    expect(_.filter([1, 2, 3], () => '')).toEqual([]);
+  });
 });
